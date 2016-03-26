@@ -35,7 +35,7 @@ After exchange account created, correspondent calendar and address book will be 
   * **Windows**: Please use mailews/libews/vs visual studo project file to build
 
 - **mailews**: exchange mail addon source
-- **contactews**: exchange addressbook addon source
+-  **contactews**: exchange addressbook addon source
 - **calendarews**: exchange calendar addon source
 
 ### Sample mozilla build config
