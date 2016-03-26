@@ -1,0 +1,17 @@
+#include "nsISupports.idl"
+
+#include "nsIRunnable.idl"
+
+[ptr] native nsNativeVoidPtr(void);
+
+[scriptable, uuid(7279A7ED-C6D8-4096-B7F4-5B480A0C22A7)]
+interface IMailEwsTaskCallback : nsISupports
+{
+	void onTaskBegin(in nsIRunnable runnable);
+    void onTaskDone(in nsIRunnable runnable,
+					in long result,
+					in nsNativeVoidPtr taskData);
+	void onTaskError(in nsIRunnable runnable,
+					 in long err_code,
+					 in ACString err_msg);
+};

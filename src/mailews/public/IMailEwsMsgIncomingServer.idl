@@ -1,0 +1,28 @@
+/* -*- Mode:C++; -*- */
+
+#include "nsISupports.idl"
+
+#include "IMailEwsService.idl"
+#include "nsIMsgFolder.idl"
+
+interface SyncFolderCallback;
+interface calICalendar;
+
+[ptr] native nsNativeMailEwsSyncFolderCallbackPtr(SyncFolderCallback);
+
+[scriptable, uuid(071d2e4a-d7f9-49d2-86c4-c37aa57d39c9)]
+interface IMailEwsMsgIncomingServer : nsISupports
+{
+    IMailEwsService getService();
+    nsIMsgFolder getFolderWithFlags(in unsigned long flags);
+	void getPasswordWithoutUI();
+    void onPasswordChanged();
+    void refreshCalendar();
+    calICalendar getCalendar();
+
+    [noscript] nsNativeMailEwsSyncFolderCallbackPtr getSyncFolderCallback();
+    
+    attribute bool isSyncingFolder;
+    attribute bool isPromptingPassword;
+};
+

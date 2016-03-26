@@ -1,0 +1,29 @@
+#filter substitution
+mailews.jar:
+%  content mailews %content/
+%  locale mailews en-US %locale/en-US/
+%  overlay  chrome://messenger/content/AccountManager.xul chrome://mailews/content/AccountManagerOverlay.xul
+%  overlay  chrome://messenger/content/am-serverwithnoidentities.xul chrome://mailews/content/am-serverwithnoidentitiesOverlay.xul
+%  category mailnews-accountmanager-extensions MailEwsServerPane @mozilla.org/accountmanager/extension;1?name=ewsserver
+%  category mailnews-accountmanager-extensions MailEwsAuthPane @mozilla.org/accountmanager/extension;1?name=ewsauth
+   	content/am-serverwithnoidentitiesOverlay.js (res/content/am-serverwithnoidentitiesOverlay.js)
+	content/messengerOverlay.xul (res/content/messengerOverlay.xul)
+	content/messengerOverlay.js (res/content/messengerOverlay.js)
+  	content/am-ewsauth.xul (res/content/am-ewsauth.xul)
+	content/newAccount.xul (res/content/newAccount.xul)
+	content/newAccount.js (res/content/newAccount.js)
+	content/ewsserver.xul (res/content/ewsserver.xul)
+	content/ewsserver.js (res/content/ewsserver.js)
+	content/am-serverwithnoidentitiesOverlay.xul (res/content/am-serverwithnoidentitiesOverlay.xul)
+	content/am-ewsserver.xul (res/content/am-ewsserver.xul)
+	content/am-ewsserver.js (res/content/am-ewsserver.js)
+	content/AccountManagerOverlay.xul (res/content/AccountManagerOverlay.xul)
+	content/AccountManagerOverlay.js (res/content/AccountManagerOverlay.js)
+	locale/en-US/extension.dtd (res/locale/en-US/extension.dtd)
+	locale/en-US/am-ewsserver.dtd (res/locale/en-US/am-ewsserver.dtd)
+	locale/en-US/am-ewsserver.properties (res/locale/en-US/am-ewsserver.properties)
+	locale/en-US/am-ewsauth.properties (res/locale/en-US/am-ewsauth.properties)
+	locale/en-US/am-mailews.dtd (res/locale/en-US/am-mailews.dtd)
+	locale/en-US/prefwindow.dtd (res/locale/en-US/prefwindow.dtd)
+	locale/en-US/extension.properties (res/locale/en-US/extension.properties)
+	lib/@MOZ_DLL_PREFIX@ews@MOZ_DLL_SUFFIX@ (libews/src/.libs/@MOZ_DLL_PREFIX@ews@MOZ_DLL_SUFFIX@)

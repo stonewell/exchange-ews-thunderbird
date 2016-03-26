@@ -1,0 +1,11 @@
+XPIDL_SOURCES += [
+	      'IMailEwsCalendarItemCallback.idl',
+	      'IMailEwsItemOp.idl',
+	      'IMailEwsItemsCallback.idl',
+			  'IMailEwsMsgFolder.idl',
+			  'IMailEwsMsgIncomingServer.idl',
+			  'IMailEwsService.idl',
+			  'IMailEwsTaskCallback.idl',
+];
+
+XPIDL_MODULE = 'mailews'

@@ -1,0 +1,3 @@
+#filter substitution
+calendarews.jar:
+%  content calendarews %content/

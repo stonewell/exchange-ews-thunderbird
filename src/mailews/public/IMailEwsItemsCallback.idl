@@ -1,0 +1,21 @@
+#include "nsISupports.idl"
+
+#include "nsIRunnable.idl"
+#include "nsIMsgFolder.idl"
+
+[ptr] native nsNativeStringArrayPtr(nsTArray<nsCString>);
+[ptr] native nsNativeVoidPtr(void);
+[ptr] native nsNativeCharPtr(char);
+
+[scriptable, uuid(3571F0BA-5F82-480B-95FD-0FDB1D61695A)]
+interface IMailEwsItemsCallback : nsISupports
+{
+	[noscript] attribute nsNativeStringArrayPtr itemIds;
+	attribute nsIMsgFolder folder;
+	attribute long remoteResult;
+	[noscript] attribute nsNativeCharPtr remoteMessage;
+	
+	[noscript] void localOperation(in nsNativeVoidPtr remoteResponse);
+	[noscript] nsNativeVoidPtr remoteOperation();
+	[noscript] void freeRemoteResponse(in nsNativeVoidPtr remoteResponse);
+};

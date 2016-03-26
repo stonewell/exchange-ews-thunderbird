@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 Microsoft Corporation. All rights reserved. -->
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/messages" schemaLocation="messages.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="SendNotificationSoapIn">
+		<wsdl:part name="request" element="tns:SendNotification" />
+	</wsdl:message>
+	<wsdl:message name="SendNotificationSoapOut">
+		<wsdl:part name="SendNotificationResult" element="tns:SendNotificationResult" />
+	</wsdl:message>
+	<wsdl:portType name="NotificationServicePortType">
+		<wsdl:operation name="SendNotification">
+			<wsdl:input message="tns:SendNotificationSoapIn" />
+			<wsdl:output message="tns:SendNotificationSoapOut" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+
+	<wsdl:binding name="NotificationServiceBinding" type="tns:NotificationServicePortType">
+		<wsdl:documentation>
+			<wsi:Claim conformsTo="http://ws-i.org/profiles/basic/1.0" xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" />
+		</wsdl:documentation>
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+
+		<wsdl:operation name="SendNotification">
+			<soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/SendNotification" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<wsdl:binding name="NotificationServiceBinding12" type="tns:NotificationServicePortType">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+
+		<wsdl:operation name="SendNotification">
+			<soap12:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/SendNotification" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+</wsdl:definitions>

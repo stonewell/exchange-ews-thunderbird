@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://messenger/skin/accountManage.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/messenger.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/folderMenus.css" type="text/css"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % trashDTD SYSTEM "chrome://messenger/locale/am-server-top.dtd">%trashDTD;
+<!ENTITY % extensionDTD SYSTEM "chrome://mailews/locale/extension.dtd"> %extensionDTD;
+]>
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+         id="ewsAccount">
+
+  <script type="application/javascript" src="chrome://mailews/content/ewsserver.js" />
+  <script type="application/javascript" src="chrome://mailews/content/newAccount.js" />
+
+  <vbox id="ewsOverlay" flex="1">
+	<!--<description width="120">&ewsInstructions;</description> -->
+    <grid flex="1">
+      <columns>
+        <column flex="1" />
+        <column flex="3" />
+      </columns>
+      <rows>
+        <row align="center">
+          <label value="&email;" control="server.email"/>
+          <textbox size="40" id="server.email"
+				   wsm_persist="true"
+				   pref="true" 
+				   preftype="string" 
+				   prefattribute="value" 
+				   genericattr="true"
+                   prefstring="mail.server.%serverkey%.email"/>
+        </row>
+        <row align="center">
+          <label value="&username;" control="server.userName"/>
+          <textbox size="40" id="server.userName"
+				   wsm_persist="true"
+				   pref="true" 
+				   preftype="string" 
+				   prefattribute="value" 
+				   genericattr="true"
+                   prefstring="mail.server.%serverkey%.userName"/>
+        </row>
+        <row align="center">
+          <label value="&passwd;" control="server.passwd"/>
+          <textbox size="40" id="server.passwd"
+				   wsm_persist="true"
+				   pref="true" 
+				   preftype="string" 
+				   prefattribute="value" 
+				   genericattr="true"
+                   prefstring="mail.server.%serverkey%.passwd"
+				   type="password"/>
+        </row>
+        <row align="center">
+          <label value="&url;" control="server.url"/>
+		  <hbox>
+            <textbox size="40" id="server.url"
+					 wsm_persist="true"
+					 pref="true" 
+					 preftype="string" 
+					 prefattribute="value" 
+					 genericattr="true"
+                     prefstring="mail.server.%serverkey%.url"
+					 flex="100"/>
+            <button id="discoverbtn" label="&discover;"
+                    oncommand="mailews.ewsserver.discoverUrl()"
+                    disabled="false"/>
+		  </hbox>
+        </row>
+        <row align="center">
+          <label value="&oab;" control="server.oab"/>
+          <textbox size="40" id="server.oab"
+				   wsm_persist="true"
+				   pref="true" 
+				   preftype="string" 
+				   prefattribute="value" 
+				   genericattr="true"
+                   prefstring="mail.server.%serverkey%.oab"
+                   />
+        </row>
+        <row align="center">
+          <label value="&auth.method;" control="server.auth"/>
+          <menulist size="40" id="server.auth"
+				   wsm_persist="true"
+				   pref="true" 
+				   preftype="int" 
+				   prefattribute="value" 
+				   genericattr="true"
+                   prefstring="mail.server.%serverkey%.auth"
+                   >
+	    <menupopup>
+	      <menuitem label="NTLM" selected="true" value="0"/>
+	      <menuitem label="Basic" value="1"/>
+	    </menupopup>
+	  </menulist>
+        </row>
+      </rows>
+    </grid>
+  </vbox>
+</overlay>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % am-ewsDTD SYSTEM "chrome://mailews/locale/am-mailews.dtd" >
+%am-ewsDTD;
+<!ENTITY % AccountWizardDTD SYSTEM "chrome://messenger/locale/AccountManager.dtd" >
+%AccountWizardDTD;
+]>
+
+<overlay id='mailewsAMOverlay'
+         xmlns='http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'>
+  <dialog id="accountManager">
+    <script type='application/javascript' src='AccountManagerOverlay.js'/>
+  </dialog>
+  <menupopup id="accountActionsDropdown">
+    <menuitem id="mailews-account" label="Add Ews Account" insertbefore="accountActionsDropdownSep1"
+              oncommand="mailews.newAccountWindowOpen();"/>
+  </menupopup>
+
+</overlay>

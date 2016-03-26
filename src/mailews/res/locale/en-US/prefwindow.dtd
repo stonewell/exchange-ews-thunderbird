@@ -1,0 +1,7 @@
+<!ENTITY newAccountWindow.title "Add Ews Account">
+<!ENTITY pane1.title "Pane 1">
+<!ENTITY tab1.title "Tab 1">
+<!ENTITY tab2.title "Tab 1">
+<!ENTITY testPreference.label "Test preference">
+<!ENTITY testPreference.accesskey "P">
+<!ENTITY optionsIntro "This is the introduction to this pane">

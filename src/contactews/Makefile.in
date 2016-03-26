@@ -1,0 +1,43 @@
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+
+DEPTH = ../..
+topsrcdir = @top_srcdir@
+srcdir = @srcdir@
+VPATH = @srcdir@
+
+include $(DEPTH)/config/autoconf.mk
+
+DIST_FILES = install.rdf
+
+XPI_NAME               = contactews
+USE_EXTENSION_MANIFEST = 1
+NO_JAR_AUTO_REG        = 1
+INSTALL_EXTENSION_ID   = contactews@angsto-tech.com
+XPI_PKGNAME            = contactews-$(CONTACTEWS_VERSION).$(AB_CD).$(MOZ_PKG_PLATFORM)
+XPI_VERSION            = $(CONTACTEWS_VERSION)
+
+THUNDERBIRD_VERSION := $(shell cat $(topsrcdir)/../mail/config/version.txt)
+CONTACTEWS_VERSION := $(shell cat $(srcdir)/version.txt)
+
+THUNDERBIRD_MAXVERSION := $(THUNDERBIRD_VERSION)
+ifneq (a,$(findstring a,$(THUNDERBIRD_VERSION)))
+THUNDERBIRD_MAXVERSION := $(shell echo $(THUNDERBIRD_VERSION) | sed 's|\(^[0-9]*\)\.\([0-9]*\).*|\1|' ).*
+endif
+
+DEFINES += -DTHUNDERBIRD_VERSION=$(THUNDERBIRD_VERSION) \
+           -DTHUNDERBIRD_MAXVERSION=$(THUNDERBIRD_MAXVERSION) \
+           -DAB_CD=$(AB_CD) \
+           -DCONTACTEWS_VERSION=$(CONTACTEWS_VERSION) \
+           -DTARGET_PLATFORM=$(OS_TARGET)_$(TARGET_XPCOM_ABI) \
+           $(NULL)
+
+XULAPP_DEFINES = \
+  -DDOMi_VERSION=$(DOMi_VERSION) \
+  $(NULL)
+
+include $(topsrcdir)/config/rules.mk
+include $(srcdir)/contactews-packager.mk

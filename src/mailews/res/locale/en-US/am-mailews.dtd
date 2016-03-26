@@ -1,0 +1,31 @@
+<!ENTITY accountTitle.label "Account Settings">
+
+<!ENTITY biffStart.label "Check for new articles every ">
+<!ENTITY biffStart.accesskey "k">
+<!ENTITY biffEnd.label "minutes">
+
+<!ENTITY loginAtStartup.label "Check for new articles at startup"> 
+<!ENTITY loginAtStartup.accesskey "C">
+
+<!ENTITY useQuickMode.label "By default, show the article summary instead of loading the web page"> 
+<!ENTITY useQuickMode.accesskey "B">
+
+<!ENTITY manageSubscriptions.label "Manage Subscriptions…"> 
+<!ENTITY manageSubscriptions.accesskey "M">
+<!ENTITY ews.adServer.label "Exchange server autodiscover address (usually your email domain)">
+<!ENTITY ews.adServer.accesskey "S">
+<!-- entities from rss.rdf -->
+<!ENTITY ews.accountName "Exchange Web Services account">
+<!ENTITY ews.wizardLongName "Exchange Web Services">
+<!ENTITY ews.wizardLongName.accesskey "E">
+<!ENTITY ews.logEws "Log Server Interactions">
+<!ENTITY ews.logEws.accesskey "L">
+<!ENTITY ews.ExchangeServer "Exchange Server">
+<!ENTITY ews.ewsURL.label "Exchange URL">
+<!ENTITY ews.ewsURL.accesskey "U">
+<!ENTITY ews.autodiscover.label "auto discover">
+<!ENTITY ews.openLog.label "Open log file">
+<!ENTITY ews.openLog.accesskey "O">
+<!ENTITY ews.autodiscover.accesskey "D">
+<!ENTITY ews.autodiscoverintro "You may either auto discover the Exchange URL (recommended) or enter it manually">
+<!ENTITY ews.adStatus.notdone "Not done">

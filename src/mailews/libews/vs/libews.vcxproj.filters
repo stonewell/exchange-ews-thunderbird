@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ews">
+      <UniqueIdentifier>{d8967d62-9e0a-4ce5-a951-26792022f014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gsoap_impl">
+      <UniqueIdentifier>{ec8256f5-334a-42ce-8f76-ad243d462b8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\libews_c">
+      <UniqueIdentifier>{430e4d7c-6d56-4886-b1ee-e6635d76e4a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gsoap">
+      <UniqueIdentifier>{238084db-bf88-4be8-b1b0-3ae94325243e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{5faaa4fd-50c1-4708-a795-7fc8f9c6ad16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ews">
+      <UniqueIdentifier>{faaa1dc9-b09c-4284-ba31-52013f2f6705}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gsoap">
+      <UniqueIdentifier>{73c9e7fa-ea49-4b6e-8e24-2752f320a65a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{86edd7f8-e19e-4058-849c-0c8bd414ef81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gsoap_impl">
+      <UniqueIdentifier>{16f2ab8d-21f5-4d8c-9cec-cf20ad6cf30c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\libews.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ews\ewsC.cpp">
+      <Filter>Source Files\ews</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ews\ewsExchangeServiceBindingProxy.cpp">
+      <Filter>Source Files\ews</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ews\ewsnC.cpp">
+      <Filter>Source Files\ews</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ews\ewsnNotificationServiceBinding12Service.cpp">
+      <Filter>Source Files\ews</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ews\ewsnNotificationServiceBindingService.cpp">
+      <Filter>Source Files\ews</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_attachment_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_error_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_folder_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_item_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_item_message_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_proxyinfo_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_push_notification_server.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_recipient_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_session_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libews_c.cpp">
+      <Filter>Source Files\libews_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libews_c_attachment.cpp">
+      <Filter>Source Files\libews_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libews_c_autodiscover.cpp">
+      <Filter>Source Files\libews_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libews_c_folder.cpp">
+      <Filter>Source Files\libews_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libews_c_item.cpp">
+      <Filter>Source Files\libews_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\libews_c_subscribe.cpp">
+      <Filter>Source Files\libews_c</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gsoap\stdsoap2.cpp">
+      <Filter>Source Files\gsoap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_subscription_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\curl_help.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\duration.cpp">
+      <Filter>Source Files\gsoap</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\ews_string_stl.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils\urlparser.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\libews_gsoap_utils.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_item_contact_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_item_calendar_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\impl\ews_item_task_gsoap_impl.cpp">
+      <Filter>Source Files\gsoap_impl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\libews.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\libews_defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\libews_macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\impl\ews_push_notification_server.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\ewsExchangeServiceBindingProxy.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\ewsH.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\ewsnH.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\ewsnNotificationServiceBinding12Service.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\ewsnNotificationServiceBindingService.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\ewsnStub.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\ewsStub.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\NotificationService.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ews\Services.h">
+      <Filter>Header Files\ews</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gsoap\stdsoap2.h">
+      <Filter>Header Files\gsoap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\duration.h">
+      <Filter>Header Files\gsoap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\curl_help.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\Event.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\ews_list_stl.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\ews_string_stl.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\libews_c_subscribe_callback.h">
+      <Filter>Header Files\gsoap_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\impl\libews_gsoap.h">
+      <Filter>Header Files\gsoap_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\impl\libews_gsoap_utils.h">
+      <Filter>Header Files\gsoap_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\impl\libews_impl_macros.h">
+      <Filter>Header Files\gsoap_impl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils\urlparser.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\impl\libews_gsoap_defs.h">
+      <Filter>Header Files\gsoap_impl</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

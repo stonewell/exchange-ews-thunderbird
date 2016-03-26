@@ -1,0 +1,119 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+if CONFIG['OS_ARCH'] == 'Darwin':
+    LDFLAGS += [
+    '-L$(srcdir)/../libews/src/.libs/ -lews',
+    '-lssl',
+    '-lm',
+    '-lz',
+    '-lcrypto',
+    '-lcurl',
+    '-L/usr/lib -lc++',
+    ]
+    USE_LIBS += [
+        'unicharutil_external_s',
+    ]
+elif CONFIG['OS_ARCH'] == 'Linux':
+    LDFLAGS += [
+    '-L$(srcdir)/../libews/src/.libs/ -lews',
+    '-lssl',
+    '-lm',
+    '-lz',
+    '-lcrypto',
+    '-lcurl',
+    '-Wl,-rpath,''\\$$ORIGIN/../chrome/mailews/lib/''',
+    '-Wl,-rpath-link,''\\$$ORIGIN/../chrome/mailews/lib/''',
+    ]
+    USE_LIBS += [
+        'unicharutil_external_s',
+    ]
+elif CONFIG['OS_ARCH'] == 'WINNT':
+    LDFLAGS += [
+        '$(srcdir)/../libews/src/.libs/$(LIB_PREFIX)ews.$(LIB_SUFFIX)',
+        '/DELAYLOAD:ews.dll delayimp.lib',
+    ]
+    
+USE_LIBS += [
+    'nspr',
+    'rdfutil_external_s',
+    'xpcomglue_s',
+    'xul'
+]
+
+XPCOMBinaryComponent('mailews')
+
+SOURCES += [
+    'base/MimeHeaderParser.cpp',
+    'base/MsgDBFolderBase.cpp',
+    'base/MsgFileStream.cpp',
+    'base/MsgI18N.cpp',
+    'base/MsgIncomingServerBase.cpp',
+    'base/MsgKeyArray.cpp',
+    'base/MsgKeySet.cpp',
+    'base/MsgLineStreamBuffer.cpp',
+    'base/MsgMailNewsUrlBase.cpp',
+    'base/MsgProtocolBase.cpp',
+    'base/MsgUtils.cpp',
+    'base/Services.cpp',
+ 'MailEwsAccountManagerExtensions.cpp',
+ 'MailEwsAddCalendarItemTask.cpp',
+ 'MailEwsAddTodoTask.cpp',
+ 'MailEwsConvertCalendarItemIdToUidTask.cpp',
+ 'MailEwsCreateSubFolderTask.cpp',
+ 'MailEwsDeleteCalendarItemTask.cpp',
+ 'MailEwsDeleteFolderTask.cpp',
+ 'MailEwsDeleteItemsTask.cpp',
+ 'MailEwsGetFolderTask.cpp',
+ 'MailEwsIncomingServer.cpp',
+ 'MailEwsItemOp.cpp',
+ 'MailEwsItemsCallback.cpp',
+ 'MailEwsItemTask.cpp',
+ 'MailEwsLog.cpp',
+ 'MailEwsMarkItemsReadTask.cpp',
+ 'MailEwsModifyCalendarItemTask.cpp',
+ 'MailEwsModifyTodoTask.cpp',
+ 'MailEwsModule.cpp',
+ 'MailEwsMsgDatabaseHelper.cpp',
+ 'MailEwsMsgFolder.cpp',
+ 'MailEwsMsgMessageService.cpp',
+ 'MailEwsMsgProtocol.cpp',
+ 'MailEwsMsgProtocolInfo.cpp',
+ 'MailEwsMsgUrl.cpp',
+ 'MailEwsMsgUtils.cpp',
+ 'MailEwsNotificationServerTask.cpp',
+ 'MailEwsRenameFolderTask.cpp',
+ 'MailEwsResolveNamesTask.cpp',
+ 'MailEwsRunnable.cpp',
+ 'MailEwsSendMailWithMimeContentTask.cpp',
+ 'MailEwsService.cpp',
+ 'MailEwsSmtpProxyTask.cpp',
+ 'MailEwsSubscribePushNotificationTask.cpp',
+ 'MailEwsSubscriptionCallback.cpp',
+ 'MailEwsSyncCalendarTask.cpp',
+ 'MailEwsSyncFolderIdNameWithFolderIdTask.cpp',
+ 'MailEwsSyncFolderTask.cpp',
+ 'MailEwsSyncFolderUtils.cpp', 
+ 'MailEwsSyncItemTask.cpp',
+ 'MailEwsSyncItemUtils.cpp',
+ 'MailEwsSyncTodoTask.cpp',
+ 'MailEwsTimeZones.cpp',
+ 'rfc3339/rfc3339.cpp',
+ 'smtp-proxy/KLSmtp.cpp',
+ 'smtp-proxy/MailSession.cpp',
+ 'smtp-proxy/Process.cpp',
+ 'smtp-proxy/stdafx.cpp',
+ ]
+
+LOCAL_INCLUDES += [
+    '../libews/src',
+    './base',
+]
+EXPORTS.mozilla += [
+]
+
+FAIL_ON_WARNINGS = True
+

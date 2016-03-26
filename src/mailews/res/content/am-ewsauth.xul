@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://messenger/skin/accountManage.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/messenger.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/folderMenus.css" type="text/css"?>
+<?xul-overlay href="chrome://mailews/content/ewsserver.xul"?>
+
+<!DOCTYPE page [
+<!ENTITY % trashDTD SYSTEM "chrome://messenger/locale/am-server-top.dtd">%trashDTD;
+<!ENTITY % extensionDTD SYSTEM "chrome://mailews/locale/extension.dtd"> %extensionDTD;
+]>
+
+<page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      title="&EwsAuthorization;"
+      onload="parent.onPanelLoaded('am-ewsauth.xul');">
+  <script type="application/javascript">
+    // glue to account manager
+    function onSave() {
+      mailews.ewsserver.onSave();
+    }
+  </script>
+
+  <dialogheader title="&EwsAuthorization;"/>
+  <vbox id="ewsOverlay"/>
+</page>

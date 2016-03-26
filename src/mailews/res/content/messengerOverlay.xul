@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE overlay SYSTEM "chrome://mailews/locale/extension.dtd">
+<overlay id="mailews-messenger-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type='application/x-javascript' src="messengerOverlay.js"/>
+</overlay>

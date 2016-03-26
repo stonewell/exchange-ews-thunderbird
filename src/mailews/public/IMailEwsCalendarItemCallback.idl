@@ -1,0 +1,25 @@
+#include "nsISupports.idl"
+
+#include "calIItemBase.idl"
+#include "calICalendar.idl"
+
+#include "nsIArray.idl"
+
+[ptr] native nsNativeStringArrayPtr(nsTArray<nsCString>);
+
+[scriptable, uuid(6db07197-b18c-4958-810a-f7bf0ef2c685)]
+interface IMailEwsCalendarItemCallback : nsISupports
+{
+	attribute calICalendar calendar;
+
+    void getIsRunning(out bool running,
+                      in bool isEvent);
+    void setIsRunning(in bool running,
+                      in bool isEvent);
+    void getSyncState(out ACString syncState,
+                      in bool isEvent);
+    void setSyncState(in ACString syncState,
+                      in bool isEvent);
+	void onResult(in nsIArray calItems);
+    void onDelete(in nsNativeStringArrayPtr itemIds);
+};

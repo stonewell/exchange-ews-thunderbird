@@ -1,0 +1,3 @@
+v1.4
+  - Fix bug when password changed,  prompting not correct.
+  - Add subscription to calendar and tasks folder

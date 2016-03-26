@@ -1,0 +1,11 @@
+/* -*- mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+#include "nsISupports.idl"
+
+#include "nsIAbCard.idl"
+
+[scriptable, uuid(cbdec932-5bfd-11e5-a493-0023246c28f3)]
+interface IContactEwsAutoCompleteResult : nsISupports
+{
+  void setSearchResult(in uint16_t aSearchResult);
+  void addCard(in nsIAbCard aCard);
+};

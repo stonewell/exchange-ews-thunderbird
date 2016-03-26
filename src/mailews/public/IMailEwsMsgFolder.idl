@@ -1,0 +1,35 @@
+#include "nsISupports.idl"
+
+#include "nsIMsgFolder.idl"
+#include "nsIMsgWindow.idl"
+#include "nsIArray.idl"
+#include "IMailEwsItemOp.idl"
+
+interface SyncItemCallback;
+[ptr] native nsNativeMailEwsSyncItemCallbackPtr(SyncItemCallback);
+[ptr] native nsNativeStringArrayPtr(nsTArray<nsCString>);
+
+[scriptable, uuid(9C46C99A-DF1A-4626-9E5F-CB91FE3C386A)]
+interface IMailEwsMsgFolder : nsISupports
+{
+	void ClientRemoveSubFolder(in nsIMsgFolder which);
+	void ClientMoveTo(in nsIMsgFolder pNewParent, in nsIMsgWindow msgWindow);
+	void ClientRename(in AString aNewName, in nsIMsgWindow msgWindow);
+	void Alert(in ACString msg, in nsIMsgWindow msgWindow);
+    nsIMsgFolder GetChildWithFolderId(in ACString folderId, in bool deep);
+    nsIMsgFolder GetChildWithName(in AString name, in bool deep);
+
+    attribute ACString folderId;
+    attribute ACString changeKey;
+    attribute ACString syncState;
+    
+    [noscript] nsNativeMailEwsSyncItemCallbackPtr getSyncItemCallback();
+    [noscript] nsIArray getMsgHdrsForItemIds(in nsNativeStringArrayPtr itemIds);
+    [noscript] nsIArray getMsgHdrsForMessageIds(in nsNativeStringArrayPtr msgIds);
+    void ClientDeleteMessages(in nsIArray messages);
+
+	IMailEwsItemOp createItemOp();
+	void removeItemOp(in ACString itemId, in long itemOp);
+	nsIArray getItemOps();
+};
+

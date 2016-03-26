@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7913CD5B-FB8C-47D9-BECB-68594FD09D3E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)\..\src\.libs\</OutDir>
+    <TargetName>ews</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)\..\src\.libs\</OutDir>
+    <TargetName>ews</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LIBEWS_EXPORTS;BUILDING_DLL;WITH_COOKIES;WITH_OPENSSL;WITH_NONAMESPACES;CURL_STATICLIB;WITH_GZIP;WITH_ZLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\openssl\inc32;C:\curl-7.42.1\include;$(ProjectDir)\..\src;$(ProjectDir)\..\gsoap;$(ProjectDir)\..\ews;C:\zlib-1.2.8;$(ProjectDir)\..\src\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>ws2_32.lib;wldap32.lib;libcurld.lib;libeay32.lib;ssleay32.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>C:\zlib-1.2.8;C:\openssl\out32;C:\curl-7.42.1\build\Win32\VC12\LIB Release - LIB OpenSSL</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBEWS_EXPORTS;BUILDING_DLL;WITH_OPENSSL;WITH_COOKIES;WITH_NONAMESPACES;CURL_STATICLIB;WITH_GZIP;WITH_ZLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>C:\openssl\inc32;C:\curl-7.42.1\include;$(ProjectDir)\..\src;$(ProjectDir)\..\gsoap;$(ProjectDir)\..\ews;C:\zlib-1.2.8;$(ProjectDir)\..\src\utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\zlib-1.2.8;C:\openssl\out32;C:\curl-7.42.1\build\Win32\VC12\LIB Release - LIB OpenSSL</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;wldap32.lib;libcurl.lib;libeay32.lib;ssleay32.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ews\ewsC.cpp" />
+    <ClCompile Include="..\ews\ewsExchangeServiceBindingProxy.cpp" />
+    <ClCompile Include="..\ews\ewsnC.cpp" />
+    <ClCompile Include="..\ews\ewsnNotificationServiceBinding12Service.cpp" />
+    <ClCompile Include="..\ews\ewsnNotificationServiceBindingService.cpp" />
+    <ClCompile Include="..\gsoap\stdsoap2.cpp" />
+    <ClCompile Include="..\src\impl\ews_attachment_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_error_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_folder_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_item_calendar_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_item_contact_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_item_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_item_message_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_item_task_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_proxyinfo_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_push_notification_server.cpp" />
+    <ClCompile Include="..\src\impl\ews_recipient_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_session_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\ews_subscription_gsoap_impl.cpp" />
+    <ClCompile Include="..\src\impl\libews_gsoap_utils.cpp" />
+    <ClCompile Include="..\src\libews.cpp" />
+    <ClCompile Include="..\src\libews_c.cpp" />
+    <ClCompile Include="..\src\libews_c_attachment.cpp" />
+    <ClCompile Include="..\src\libews_c_autodiscover.cpp" />
+    <ClCompile Include="..\src\libews_c_folder.cpp" />
+    <ClCompile Include="..\src\libews_c_item.cpp" />
+    <ClCompile Include="..\src\libews_c_subscribe.cpp" />
+    <ClCompile Include="..\src\utils\curl_help.cpp" />
+    <ClCompile Include="..\src\utils\duration.cpp" />
+    <ClCompile Include="..\src\utils\ews_string_stl.cpp" />
+    <ClCompile Include="..\src\utils\urlparser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ews\ewsExchangeServiceBindingProxy.h" />
+    <ClInclude Include="..\ews\ewsH.h" />
+    <ClInclude Include="..\ews\ewsnH.h" />
+    <ClInclude Include="..\ews\ewsnNotificationServiceBinding12Service.h" />
+    <ClInclude Include="..\ews\ewsnNotificationServiceBindingService.h" />
+    <ClInclude Include="..\ews\ewsnStub.h" />
+    <ClInclude Include="..\ews\ewsStub.h" />
+    <ClInclude Include="..\ews\NotificationService.h" />
+    <ClInclude Include="..\ews\Services.h" />
+    <ClInclude Include="..\gsoap\stdsoap2.h" />
+    <ClInclude Include="..\src\impl\ews_push_notification_server.h" />
+    <ClInclude Include="..\src\impl\libews_gsoap.h" />
+    <ClInclude Include="..\src\impl\libews_gsoap_defs.h" />
+    <ClInclude Include="..\src\impl\libews_gsoap_utils.h" />
+    <ClInclude Include="..\src\impl\libews_impl_macros.h" />
+    <ClInclude Include="..\src\libews.h" />
+    <ClInclude Include="..\src\libews_c_subscribe_callback.h" />
+    <ClInclude Include="..\src\libews_defs.h" />
+    <ClInclude Include="..\src\libews_macros.h" />
+    <ClInclude Include="..\src\utils\curl_help.h" />
+    <ClInclude Include="..\src\utils\duration.h" />
+    <ClInclude Include="..\src\utils\Event.h" />
+    <ClInclude Include="..\src\utils\ews_list_stl.h" />
+    <ClInclude Include="..\src\utils\ews_string_stl.h" />
+    <ClInclude Include="..\src\utils\urlparser.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

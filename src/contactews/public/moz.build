@@ -1,0 +1,6 @@
+XPIDL_SOURCES += [
+	      'IContactEwsAutoCompleteResult.idl',
+        'IContactEwsDirectory.idl',
+];
+
+XPIDL_MODULE = 'contactews'

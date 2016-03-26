@@ -1,0 +1,7 @@
+#filter substitution
+contactews.jar:
+%  content contactews %content/
+%  overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://contactews/content/addressingWidgetOverlay.xul
+	content/addressingWidgetOverlay.xul (chrome/content/addressingWidgetOverlay.xul)
+	content/addressingWidgetOverlay.js (chrome/content/addressingWidgetOverlay.js)
+

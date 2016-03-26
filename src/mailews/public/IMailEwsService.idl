@@ -1,0 +1,113 @@
+#include "nsISupports.idl"
+
+#include "nsIMsgFolder.idl"
+#include "nsISupportsArray.idl"
+#include "nsIMsgIncomingServer.idl"
+
+#include "IMailEwsMsgFolder.idl"
+#include "IMailEwsTaskCallback.idl"
+#include "IMailEwsItemsCallback.idl"
+#include "IMailEwsCalendarItemCallback.idl"
+
+[ptr] native nsNativeMailEwsSessionPtr(void);
+[ptr] native nsNativeStringArrayPtr(nsTArray<nsCString>);
+[ptr] native nsNativeDataBufferPtr(char);
+
+interface MailEwsDataBuffer;
+interface nsIAbDirSearchListener;
+interface nsIAbDirectory;
+interface calIEvent;
+interface calITodo;
+
+[scriptable, uuid(587b2e04-5aa1-4b0c-a76f-4644e330ca8e)]
+interface IMailEwsService : nsISupports
+{
+    long Discovery(in ACString email,
+				   in ACString user,
+				   in ACString passwd,
+				   out ACString url,
+				   out ACString oab,
+                   out long auth,
+				   out ACString err);
+	
+	void initWithIncomingServer(in nsIMsgIncomingServer incomingServer);
+
+	void updateFolderProperties(in IMailEwsMsgFolder folder,
+								in IMailEwsTaskCallback callback);
+	void updateFolderPropertiesWithId(in ACString folder_id,
+									  in IMailEwsMsgFolder folder,
+									  in IMailEwsTaskCallback callback);
+	void updateFolderPropertiesWithIdName(in long folder_id_name,
+										  in IMailEwsMsgFolder folder,
+										  in IMailEwsTaskCallback callback);
+	
+	void syncFolder(in IMailEwsTaskCallback callback);
+	void deleteFolders(in nsISupportsArray folders,
+					   in bool deleteNoTrash,
+					   in IMailEwsTaskCallback callback);
+	void createSubFolder(in nsIMsgFolder parentFolder,
+						 in AString folderName,
+						 in IMailEwsTaskCallback callback);
+	void renameFolder(in nsIMsgFolder folder,
+					  in AString aNewName,
+					  in nsIMsgWindow msgWindow,
+					  in IMailEwsTaskCallback callback);
+	void processQueuedTasks();
+	
+	[noscript] attribute nsNativeStringArrayPtr folderIdNamesToFolderId;
+
+    [noscript] nsNativeMailEwsSessionPtr getNewSession();
+    [noscript] void releaseSession(in nsNativeMailEwsSessionPtr aSession);
+    
+    void syncItems(in nsIMsgFolder folder,
+                   in IMailEwsTaskCallback callback);
+
+	void processItems(in nsIMsgFolder folder,
+					  in IMailEwsItemsCallback items_callback,
+					  in IMailEwsTaskCallback callback);
+
+	void startNotificationServer(in IMailEwsTaskCallback callback);
+	[noscript] void subscribePushNotification(in nsNativeStringArrayPtr folderIds,
+								   in IMailEwsTaskCallback callback);
+	void shutdown();
+
+	[noscript] void sendMailWithMimeContent(in nsNativeDataBufferPtr mimeContent,
+											in long size,
+											in IMailEwsTaskCallback callback);
+	
+	[noscript] void deleteItems(in nsIMsgFolder folder,
+								in nsNativeStringArrayPtr itemIdsAndChangeKeys,
+								in bool deleteNoTrash,
+								in IMailEwsTaskCallback callback);
+	[noscript] void markItemsRead(in nsIMsgFolder folder,
+								  in nsNativeStringArrayPtr itemIdsAndChangeKeys,
+								  in bool isRead,
+								  in IMailEwsTaskCallback callback);
+	void resolveNames(in ACString unresolvedEntry,
+					  in nsIAbDirSearchListener aListener,
+                      in nsIAbDirectory aParent,
+					  in ACString uuid,
+					  in long aResultLimit,
+                      in bool aDoSyncCall,
+                      in int32_t aSearchContext,
+					  in IMailEwsTaskCallback callback);
+    void syncCalendar(in IMailEwsCalendarItemCallback calCallback,
+                      in IMailEwsTaskCallback callback);
+    void addCalendarItem(in calIEvent event,
+                         in IMailEwsTaskCallback callback);
+    void modifyCalendarItem(in calIEvent oldEvent,
+                            in calIEvent newEvent,
+                            in IMailEwsTaskCallback callback);
+    void deleteCalendarItem(in ACString item_id,
+                            in ACString change_key,
+                            in IMailEwsTaskCallback callback);
+    void syncTodo(in IMailEwsCalendarItemCallback calCallback,
+				  in IMailEwsTaskCallback callback);
+    void addTodo(in calITodo event,
+				 in IMailEwsTaskCallback callback);
+    void modifyTodo(in calITodo oldTodo,
+					in calITodo newTodo,
+                    in IMailEwsCalendarItemCallback calCallback,
+					in IMailEwsTaskCallback callback);
+};
+

@@ -1,0 +1,6 @@
+v1.5
+  - all memory allocated in the ews should be release in ews
+  - auto discover curl configuration should add ssl part
+
+v1.4
+  - Get Folders should return all type of folder not just mail folder

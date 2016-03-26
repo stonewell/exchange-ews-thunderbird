@@ -1,0 +1,14 @@
+
+#include "ewsnH.h"
+SOAP_NMAC struct Namespace ewsn_namespaces[] =
+{
+	{"SOAP-ENV", "http://www.w3.org/2003/05/soap-envelope", "http://schemas.xmlsoap.org/soap/envelope/", NULL},
+	{"SOAP-ENC", "http://www.w3.org/2003/05/soap-encoding", "http://schemas.xmlsoap.org/soap/encoding/", NULL},
+	{"xsi", "http://www.w3.org/2001/XMLSchema-instance", "http://www.w3.org/*/XMLSchema-instance", NULL},
+	{"xsd", "http://www.w3.org/2001/XMLSchema", "http://www.w3.org/*/XMLSchema", NULL},
+	{"ewsn2", "http://schemas.microsoft.com/exchange/services/2006/types", NULL, NULL},
+	{"ewsn3", "http://schemas.microsoft.com/exchange/services/2006/messages/NotificationServiceBinding", NULL, NULL},
+	{"ewsn", "http://schemas.microsoft.com/exchange/services/2006/messages", NULL, NULL},
+	{"ewsn4", "http://schemas.microsoft.com/exchange/services/2006/messages/NotificationServiceBinding12", NULL, NULL},
+	{NULL, NULL, NULL, NULL}
+};

@@ -1,0 +1,12 @@
+<!ENTITY ewsInstructions "To connect to a ews account, input email address along with username, password and service URL, or press the 'Discover' button to find the URL.">
+<!ENTITY EwsAuthorization "Ews Authorization">
+<!ENTITY EwsCompose "Ews Message Compose">
+<!ENTITY mailews.SendAndClose "Send &amp; Close">
+<!ENTITY email "Email Address:">
+<!ENTITY username "Username (domain\username):">
+<!ENTITY passwd "Password:">
+<!ENTITY url "Service URL:">
+<!ENTITY oab "OAB URL:">
+<!ENTITY discover "Discover">
+<!ENTITY auth.method "Auth:">
+

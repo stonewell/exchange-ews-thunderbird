@@ -1,0 +1,22 @@
+#include "nsISupports.idl"
+
+[scriptable, uuid(470634C9-F4FD-4CC8-BED8-C8E96944C57C)]
+
+interface IMailEwsItemOp : nsISupports {
+	%{C++
+	enum {
+		Saved_Item_Delete_Local,
+		Saved_Item_Read_Local,
+		Saved_Item_Delete_Remote,
+		Saved_Item_Delete_Remote_Trash,
+		Saved_Item_Read_Remote,
+		Saved_Item_New,
+		Saved_Item_Update = Saved_Item_New,
+		Saved_Calendar_Item_New,
+	};
+		%}
+	attribute ACString itemId;
+	attribute ACString changeKey;
+	attribute long opType;
+	attribute bool read;
+};
