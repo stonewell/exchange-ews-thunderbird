@@ -21,9 +21,7 @@ After exchange account created, correspondent calendar and address book will be 
 ## Build
 
 ### Components
-- **mailews/libews**: library implement exchange web service protocol, based on soap library  [**gsoap**](http://www.cs.fsu.edu/~engelen/soap.html)
-
-Building libews needs to static link to two libraries [**libcurl**](https://curl.haxx.se/libcurl/) and [**openssl**](https://www.openssl.org/), please download and build static libraries, install the static library, for example to **/usr/local**
+- **mailews/libews**: library implement exchange web service protocol, based on soap library  [**gsoap**](http://www.cs.fsu.edu/~engelen/soap.html) Building libews needs to static link to two libraries [**libcurl**](https://curl.haxx.se/libcurl/) and [**openssl**](https://www.openssl.org/), please download and build static libraries, install the static library, for example to **/usr/local**
   - Mac
 ```Bash
 ./configure --disable-debug --enable-shared --disable-static --with-install-name=@loader_path/../chrome/mailews/lib/libews.dylib --with-curl=/usr/local --with-openssl=/usr/local/ssl
@@ -32,8 +30,7 @@ Building libews needs to static link to two libraries [**libcurl**](https://curl
 ```Bash
 ./configure --disable-debug --enable-shared --disable-static  --with-curl=/usr/local --with-openssl=/usr/local/ssl
 ```
-  - Windows
-Please use mailews/libews/vs visual studo project file to build
+  - Windows Please use mailews/libews/vs visual studo project file to build
 
 - **mailews**: exchange mail addon source
 - **contactews**: exchange addressbook addon source
